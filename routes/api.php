@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/vacations', [\App\Http\Controllers\VacationController::class, 'index']);
+Route::post('/vacation', [\App\Http\Controllers\VacationController::class, 'store']);
+Route::get('/vacations/{id}', [\App\Http\Controllers\VacationController::class, 'show']);
+Route::delete('/vacation/{id}', [\App\Http\Controllers\VacationController::class, 'destroy']);
